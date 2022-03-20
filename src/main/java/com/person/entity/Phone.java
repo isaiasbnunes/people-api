@@ -7,6 +7,8 @@ import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Size;
 
 import enums.Type;
 
@@ -19,6 +21,8 @@ public class Phone implements Serializable{
 	@GeneratedValue
 	private Long id;
 	
+	@NotEmpty
+	@Size(min =9, max = 14)
 	private String number;
 	
 	@Enumerated(EnumType.STRING)

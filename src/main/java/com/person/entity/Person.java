@@ -10,6 +10,9 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Size;
+
 
 @Entity
 public class Person implements Serializable{
@@ -19,8 +22,10 @@ public class Person implements Serializable{
 	@GeneratedValue
 	private Long id;
 	
-
+	@NotEmpty
+	@Size(min=2, max = 100)
 	private String name;
+	
 	
 	@Column(nullable = false, unique = true)
 	private String cpf;
